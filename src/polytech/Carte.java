@@ -6,10 +6,19 @@ public class Carte {
     private int valeur;
     private String couleur;
 
-    public Carte(int valeur, String couleur) throws Exception {
-        this.valeur = valeur;
+    public Carte(String valeur, String couleur) throws Exception {
+        if (valeur.equals(BatailleMagicNumber.REPRESENTATION_AS))
+        {
+            this.valeur = BatailleMagicNumber.VALUE_AS;
+        }
+        try {
+            this.valeur = Integer.parseInt(valeur);
+        }catch (Exception e){
+            throw new Exception("Valeur invalide");
+        }
+
         this.couleur = couleur;
-        if (valeur < 0 || valeur > 10)
+        if ((this.valeur < 7 || this.valeur > 10) && this.valeur != BatailleMagicNumber.VALUE_AS)
             throw new Exception("Valeur de la carte, trop elevé");
 
         if (!BatailleMagicNumber.containsColor(couleur)){
@@ -21,9 +30,18 @@ public class Carte {
         return valeur;
     }
 
+    public String getValeurToString(){
+        if (valeur == BatailleMagicNumber.VALUE_AS)
+            return BatailleMagicNumber.REPRESENTATION_AS;
+        return "" + valeur;
+    }
 
     public String getCouleur() {
         return couleur;
     }
 
+    @Override
+    public String toString() {
+        return getValeurToString()+getCouleur();
+    }
 }
