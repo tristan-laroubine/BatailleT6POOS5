@@ -9,7 +9,7 @@ public class Deck {
 
     Deck() {
         for (String color : BatailleMagicNumber.couleurs) {
-            for (int i = 0; i <= BatailleMagicNumber.NOMBRE_DE_CARTE_PAR_COULEUR; i++) {
+            for (int i = 0; i < BatailleMagicNumber.NOMBRE_DE_CARTE_PAR_COULEUR; i++) {
                 try {
                     if (i != 5) {
                         cartes.add(new Carte(Integer.toString(i), color));
@@ -56,6 +56,10 @@ public class Deck {
 
     private void addAll(Deck deck) {
         this.cartes.addAll(deck.getCartes());
+    }
+
+    public Carte giveCarte(){
+        return cartes.remove(0);
     }
 
 
