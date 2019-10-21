@@ -6,6 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Class : Class abstact contenant tous les magics numbers liée au projet
+ * @Date 21/10/2019
+ * @author Tristan LAROUBINE
+ * @version 1.0
+ */
 public abstract class BatailleMagicNumber {
     public static String COULEUR_COEUR = "Co";
     public static String COULEUR_PIQUE = "Pi";

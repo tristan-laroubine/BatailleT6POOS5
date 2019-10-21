@@ -2,6 +2,12 @@ package polytech;
 
 import java.util.List;
 
+/**
+ * Class : Carte représente une carte d'un jeux de 32 cartes (pas d'un pokemon ...)
+ * @Date 21/10/2019
+ * @author Tristan LAROUBINE
+ * @version 1.0
+ */
 public class Carte {
     private int valeur;
     private String couleur;

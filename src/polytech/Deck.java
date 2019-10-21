@@ -4,9 +4,18 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Deck {
+/**
+ * Class : Deck représenter un tas de cartes qui varie en fonction du nombre de joueurs
+ * @Date 21/10/2019
+ * @author Tristan LAROUBINE
+ * @version 1.0
+ */
+public class Deck implements IPacketable {
     private List<Carte> cartes = new ArrayList<>();
 
+    /**
+     * Construction d'un Deck
+     */
     Deck() {
         for (String color : BatailleMagicNumber.couleurs) {
             for (int i = 0; i < BatailleMagicNumber.NOMBRE_DE_CARTE_PAR_COULEUR; i++) {
@@ -23,12 +32,21 @@ public class Deck {
         }
     }
 
+    /**
+     * Deck contenant 32 cartes * nombreDeJeux
+     * @param nombreDeJeux Nombre de jeux dans le deck
+     */
     Deck(int nombreDeJeux) {
         for (int i = 0; i < nombreDeJeux; i++) {
             cartes.addAll(new Deck().getCartes());
         }
     }
 
+    /**
+     * Mélange le deck
+     * @param nombreDeMelange nombre de mélange à effectuer
+     * @return
+     */
     public List<Carte> shuffle(int nombreDeMelange) {
 
         for (int i = 0; i < nombreDeMelange; i++) {
@@ -54,10 +72,18 @@ public class Deck {
         return cartes;
     }
 
+    /**
+     * Fusionne deux deck
+     * @param deck le deck à fussionner
+     */
     private void addAll(Deck deck) {
         this.cartes.addAll(deck.getCartes());
     }
 
+    /**
+     * Donne une carte et l'enlève du deck
+     * @return une carte
+     */
     public Carte giveCarte(){
         return cartes.remove(0);
     }
